@@ -38,62 +38,6 @@ export default function Projects() {
             cols: 2,
             rows: 2,
         },
-        {
-            title: 'Puppy',
-            image: img2,
-            url: "https://endlessjsgame.netlify.app/",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Cat',
-            image: img3,
-            url: "https://google.com",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Hello',
-            image: img4,
-            url: "https://endlessjsgame.netlify.app/",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Puppy1',
-            image: img2,
-            url: "https://endlessjsgame.netlify.app/",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Cat1',
-            image: img3,
-            url: "https://google.com",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Endless Runner Game2',
-            image: img,
-            url: "https://endlessjsgame.netlify.app/",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Puppy2',
-            image: img2,
-            url: "https://endlessjsgame.netlify.app/",
-            cols: 2,
-            rows: 2,
-        },
-        {
-            title: 'Cat2',
-            image: img3,
-            url: "https://google.com",
-            cols: 2,
-            rows: 2,
-        },
       ];
 
       const CustomizedILT = styled(ImageListItemBar)(({ theme }) => ({
