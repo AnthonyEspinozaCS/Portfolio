@@ -19,3 +19,9 @@ export function getTimeSinceCreated(timestamp) {
       return "1 month ago";
   }
 }
+
+export function splitName(name) {
+  const temp = name.split(" ");
+
+  console.log(temp);
+}

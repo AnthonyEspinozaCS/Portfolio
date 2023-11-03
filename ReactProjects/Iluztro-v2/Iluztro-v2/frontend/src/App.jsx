@@ -10,8 +10,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
-import { useAuthContext } from "./hooks/useAuthContext.js";
+import { useAuthContext } from "./hooks/useAuthContext.jsx";
 import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 function App() {
   const { user } = useAuthContext();
@@ -24,6 +25,22 @@ function App() {
           exact
           path="/"
           element={<Home />}
+        />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/dashboard" /> : <Login />}
+        />
+        <Route
+          path="/signup"
+          element={user ? <Navigate to="/" /> : <Signup />}
+        />
+        <Route
+          path="/admin"
+          element={user && user.is_admin ? <Admin /> : <Navigate to="/dashboard" />}
+        />
+        <Route
+          path="/dashboard"
+          element={user ? <Dashboard /> : <Navigate to="/" />}
         />
         <Route
           path="/summaries"
@@ -40,22 +57,6 @@ function App() {
         <Route
           path="/plans"
           element={<Plans />}
-        />
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to="/dashboard" />}
-        />
-        <Route
-          path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/dashboard" />}
-        />
-        <Route
-          path="/admin"
-          element={user && user.is_admin ? <Admin /> : <Navigate to="/dashboard" />}
-        />
-        <Route
-          path="/dashboard"
-          element={!user ? <Navigate to="/" /> : <Dashboard />}
         />
         <Route
           path="*"

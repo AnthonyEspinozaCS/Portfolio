@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useJobContext } from "../hooks/useJobContext.js";
-import { getTimeSinceCreated } from "../../utils/utils.jsx";
+import { useAuthContext } from "../hooks/useAuthContext.jsx";
+import { useJobContext } from "../hooks/useJobContext.jsx";
+import { getTimeSinceCreated } from "../utils/utils.jsx";
 import logoIcon from "../assets/images/logos.svg";
 import sumIcon from "../assets/images/report.svg";
 import webIcon from "../assets/images/website.svg";

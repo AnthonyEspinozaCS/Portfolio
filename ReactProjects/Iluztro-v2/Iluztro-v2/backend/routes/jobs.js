@@ -1,5 +1,5 @@
 import express from "express";
-import { getUsersJobs, getAllJobs } from "../controllers/jobController.js";
+import { getUsersJobs, getAllJobs, updateJob } from "../controllers/jobController.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 
 const router = express.Router();
@@ -11,5 +11,7 @@ router.use(requireAuth);
 router.get("/", getUsersJobs);
 
 router.get("/admin", getAllJobs);
+
+router.patch("/:id", updateJob);
 
 export default router;

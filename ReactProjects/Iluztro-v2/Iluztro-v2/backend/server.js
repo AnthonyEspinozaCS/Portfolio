@@ -1,5 +1,5 @@
 import express from "express";
-import user from "./routes/user.js";
+import users from "./routes/users.js";
 import jobs from "./routes/jobs.js";
 import cors from "cors";
 
@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 app.use(cors());
 
 //routes
-app.use("/user", user);
+app.use("/users", users);
 app.use("/jobs", jobs);
 
 app.listen(3000);

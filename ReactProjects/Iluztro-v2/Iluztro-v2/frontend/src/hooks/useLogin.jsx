@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
@@ -10,7 +10,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:3000/user/login", {
+    const response = await fetch("http://localhost:3000/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -31,8 +31,6 @@ export const useLogin = () => {
 
       setIsLoading(false);
     }
-
-    console.log(json);
   };
 
   return { login, isLoading, error };

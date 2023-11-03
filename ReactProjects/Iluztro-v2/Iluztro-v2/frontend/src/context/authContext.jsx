@@ -1,12 +1,14 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer } from "react";
 
 export const AuthContext = createContext();
 
-export const authReducer = async (state, action) => {
+export const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
+      console.log(action.payload);
       return { user: action.payload };
     case "LOGOUT":
+      console.log(action.payload);
       return { user: null };
     default:
       return state;
@@ -16,11 +18,11 @@ export const authReducer = async (state, action) => {
 function getLocalUser() {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  if (user) {
-    return { user: user };
-  } else {
+  if (!user) {
     return { user: null };
   }
+
+  return { user: user };
 }
 
 export const AuthContextProvider = ({ children }) => {

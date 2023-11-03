@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import validator from "validator";
-import { getUser, createUser } from "../utils/database.js";
+import { getUser, queryAllUsers, createUser } from "../utils/database.js";
 
 // login method
 export async function login(email, password) {
@@ -37,7 +37,16 @@ export async function signup(firstName, lastName, company, email, password) {
   const hash = await bcrypt.hash(password, salt);
 
   const user = await createUser(firstName, lastName, company, email, hash);
-  console.log(user, "signup");
 
   return user;
+}
+
+export async function listUsers() {
+  try {
+    const allUsers = await queryAllUsers();
+
+    return allUsers;
+  } catch (error) {
+    throw error;
+  }
 }

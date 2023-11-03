@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "./useAuthContext.js";
+import { useAuthContext } from "./useAuthContext.jsx";
 
 export const useLogout = () => {
   const { dispatch } = useAuthContext();

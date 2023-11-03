@@ -5,8 +5,9 @@ dotenv.config();
 //connect to db
 const db = mysql.createConnection(process.env.DATABASE_URL).promise();
 
-export async function getUsers() {
+export async function queryAllUsers() {
   const [rows] = await db.query("SELECT * FROM users");
+  console.log(rows);
   return rows;
 }
 
@@ -39,4 +40,10 @@ export async function queryAllJobs() {
   const [rows] = await db.query("SELECT users.user_id, users.first_name, users.last_name, users.company, users.email, jobs.job_id, jobs.status, jobs.created_at, jobs.type_job FROM users INNER JOIN jobs ON users.user_id = jobs.user_id");
 
   return rows;
+}
+
+export async function queryUpdateJob(jobId, updateValue) {
+  const [rows] = await db.query("UPDATE jobs SET status = ? where job_id = ?", [updateValue, jobId]);
+
+  return rows.affectedRows;
 }
