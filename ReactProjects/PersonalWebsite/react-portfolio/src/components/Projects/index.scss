@@ -1,11 +1,54 @@
-.project-area {
+.project-header {
   width: 100%;
-  min-width: fit-content;
-  height: 100%;
 }
 
-.project-page > .text-zone {
+.project-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   width: 100%;
+  min-width: 340px;
+}
+
+.project-area > * {
+  flex: 1 1 100%;
+  max-width: 450px;
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .project-area > * {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-area > * {
+    flex: 1 1 calc(33% - 1rem);
+  }
+}
+
+.project {
+  position: relative;
+
+  aspect-ratio: 16 / 9;
+  box-shadow: 0px 0px 3px orangered;
+}
+
+.project img {
+  max-width: 100%;
+}
+
+.project h2 {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0.5rem;
+  bottom: 0;
+  left: 0;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  color: white;
 }
 
 a {

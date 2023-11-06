@@ -1,37 +1,31 @@
 .logo-container {
-    z-index: 0;
-    width: 400px;
-    max-width: 25%;
-    height: 609px;
+  position: relative;
+
+  transform: rotateZ(30deg);
+  z-index: 0;
+
+  svg {
+    width: clamp(200px, 30vw, 512px);
+    height: auto;
     position: absolute;
-    top: 0;
-    right: 15%;
-    bottom: 0;
-    left: auto;
-    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    svg {
-        width: 100%;
-        height: auto;
-        bottom: 0;
-        transform:  rotateZ(30deg) !important;
-    }
+  .solid-logo {
+    position: relative;
+    max-width: 100%;
+    width: clamp(200px, 30vw, 512px);
+    height: auto;
+    left: 50%;
 
-    .solid-logo {
-        position: absolute;
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: 0;
-        margin: auto;
-        width: 100%;
-        opacity: 0;
-        transform: rotateZ(30deg);
-        z-index: 1;
-    }
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 1;
+  }
 }
 
 .svg-container {
-    stroke: #9c0c02;
-    stroke-width: 10px;
+  stroke: #9c0c02;
+  stroke-width: 10px;
 }

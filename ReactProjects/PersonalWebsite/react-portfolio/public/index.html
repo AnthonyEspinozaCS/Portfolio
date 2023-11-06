@@ -45,14 +45,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-        const email = process.env.REACT_APP_EMAIL_ID
-        console.log(email)
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init("%REACT_APP_EMAIL_ID%");
-        })();
+      const email = '%REACT_APP_EMAIL_ID%'
+      function init() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('%REACT_APP_EMAIL_ID%')
+      }
+      init()
     </script>
   </body>
 </html>

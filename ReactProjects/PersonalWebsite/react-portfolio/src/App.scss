@@ -18,6 +18,12 @@ $primary-color: #9c0c02;
   src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 input,
 textarea {
   font-family: 'Helvetica Neue';
