@@ -1,14 +1,34 @@
 import React, { useState } from "react";
-import { InlineWidget } from "react-calendly";
+import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import { Event } from "../components/Event.jsx";
+
 import checkMark from "../assets/images/check.svg";
 import popular from "../assets/images/popular.svg";
+import x from "../assets/images/x.svg";
 import "./pages.css";
 
 const Plans = () => {
   const [overlayToggle, setOverlayToggle] = useState(false);
+  const [event, setEvent] = useState(null);
+
+  useCalendlyEventListener({ onEventScheduled: (e) => getMeetingDetails(e.data.payload.event.uri.substring(e.data.payload.event.uri.lastIndexOf("/") + 1)) });
+
+  const getMeetingDetails = async (uuid) => {
+    const url = `http://localhost:3000/calendly/` + uuid;
+
+    setTimeout(async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        localStorage.setItem("event", JSON.stringify(data.result));
+        setEvent(data.result);
+      } catch (error) {
+        console.error(error);
+      }
+    }, 0);
+  };
 
   const handleClick = () => {
-    console.log(overlayToggle);
     if (overlayToggle) setOverlayToggle(false);
     else setOverlayToggle(true);
   };
@@ -23,12 +43,20 @@ const Plans = () => {
         });
       },
       {
-        threshold: 0.5,
+        threshold: 0.25,
       }
     );
     card.forEach((card) => {
       ob.observe(card);
     });
+
+    const checkForEvent = () => {
+      const temp = JSON.parse(localStorage.getItem("event"));
+
+      if (temp) setEvent(temp);
+    };
+
+    checkForEvent();
   }, []);
 
   return (
@@ -41,15 +69,41 @@ const Plans = () => {
 
       <div
         className={overlayToggle ? "overlay full" : "overlay"}
+        onClick={handleClick}
         id="overlay">
         <article className="schedule-div ff-sans-normal container">
-          <h2 className="fs-600 ff-serif">Let's bring your vision to life!</h2>
-          {overlayToggle && <InlineWidget url="https://calendly.com/patriciararagon/30min?hide_event_type_details=1&hide_gdpr_banner=1" />}
-          <button
-            className="button"
-            onClick={handleClick}>
-            Close
-          </button>
+          {overlayToggle && (
+            <div className="event__container">
+              {event && (
+                <>
+                  <h2>Thank you for scheduling a consultation! The meeting details are below, as well as in your email.</h2>
+                  <Event data={event} />
+                </>
+              )}
+
+              {!event && (
+                <>
+                  <div className="schedule__header">
+                    <h2 className="fs-600 ff-serif">
+                      Let's bring your vision to <span className="text-accent">life!</span>
+                    </h2>
+                    <button
+                      className="schedule__button button"
+                      onClick={handleClick}>
+                      <img
+                        src={x}
+                        alt="An x to denote exit."
+                      />
+                    </button>
+                  </div>
+                  <InlineWidget
+                    url="https://calendly.com/patriciararagon/30min?hide_event_type_details=1&hide_gdpr_banner=1"
+                    styles={{ height: "800px" }}
+                  />
+                </>
+              )}
+            </div>
+          )}
         </article>
       </div>
 

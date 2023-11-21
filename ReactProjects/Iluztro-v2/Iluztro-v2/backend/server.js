@@ -1,6 +1,7 @@
 import express from "express";
 import users from "./routes/users.js";
 import jobs from "./routes/jobs.js";
+import calendly from "./routes/calendly.js";
 import cors from "cors";
 
 //create app
@@ -17,5 +18,11 @@ app.use(cors());
 //routes
 app.use("/users", users);
 app.use("/jobs", jobs);
+app.use("/calendly", calendly);
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.listen(3000);

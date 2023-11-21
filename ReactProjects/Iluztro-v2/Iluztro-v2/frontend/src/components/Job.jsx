@@ -6,6 +6,11 @@ import { JobSelect } from "./JobSelect.jsx";
 
 export const Job = ({ job }) => {
   const [selectedOption, setSelectedOption] = useState(job.status);
+  const [url, setURL] = useState(job.url);
+
+  const handleURL = (e) => {
+    setURL(e.target.value);
+  };
 
   const handleSelect = (option) => {
     setSelectedOption(option);
@@ -28,11 +33,19 @@ export const Job = ({ job }) => {
             />
           </div>
         </td>
+        <td>
+          <input
+            type="text"
+            onChange={handleURL}
+            value={url}
+          />
+        </td>
         <td>{getTimeSinceCreated(job.created_at)}</td>
         <td>
           <UpdateJob
             jobId={job.job_id}
-            updateValue={selectedOption}
+            updateStatus={selectedOption}
+            updateURL={url}
           />
         </td>
       </tr>

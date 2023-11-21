@@ -435,8 +435,29 @@ li::marker {
   box-shadow: rgba(255, 255, 255, 0.3) 0px 3px 8px;
 }
 
-.schedule-div .button {
-  margin-top: auto;
+.schedule__header {
+  position: relative;
+}
+
+.schedule__header .schedule__button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  right: 0px;
+  top: 50%;
+
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
+
+.schedule__button img {
+  width: 35px;
+  height: auto;
+  margin: auto;
+
+  filter: invert(100%);
 }
 
 .Not-Found {
@@ -512,6 +533,55 @@ li::marker {
   font-weight: 700;
 }
 
+.event__link {
+  text-decoration: none;
+}
+
+.event__url:hover {
+  text-decoration: underline;
+}
+
+.event {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 2rem 1rem;
+  margin-block: 2rem 0;
+  margin-inline: auto;
+
+  color: var(--white);
+  background-color: var(--dark);
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.event h3 {
+  font-size: var(--fs-large);
+}
+
+.event a,
+.event a:visited {
+  color: var(--white);
+}
+
+.dashboard__empty {
+  width: 100%;
+}
+
+.dashboard__empty h2,
+.event__container h2 {
+  font-size: var(--fs-550);
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .dashboard__empty h2 {
+    padding-block: 0 1rem;
+  }
+}
+
 .dashboard__card {
   display: flex;
   gap: 1rem;
@@ -561,6 +631,7 @@ li::marker {
 
 .admin--menubar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -579,18 +650,32 @@ li::marker {
   flex-direction: column;
   gap: 1rem;
   min-width: 300px;
+  width: 50vw;
   padding: 2rem;
   left: 0;
-  top: 50%;
+  top: -200%;
 
   background-color: white;
   border-radius: 5px;
-  transform: translateX(calc(-100% - 1rem)) translateY(-50%);
   z-index: 200;
+  overflow: hidden;
+
+  animation: fade-slide-create 500ms ease 1 forwards;
 }
 
-.create-job h2 {
+.open-create {
+  animation: openCreate 300ms ease-in 1 normal forwards;
+}
+
+.create__header {
+  display: flex;
+  justify-content: space-between;
+
   font-size: var(--fs-header-s);
+}
+
+.menubar--button .menubar--button-sml {
+  filter: invert(100%);
 }
 
 .create__toolbar {
@@ -665,8 +750,12 @@ li::marker {
   transition: height 500ms;
 }
 
+.translate-down {
+  transform: translateX(calc(-100% - 1rem)) translateY(calc(-50% + 350px));
+}
+
 .extended {
-  height: 300px;
+  height: 350px;
   transition: height 500ms;
 }
 
@@ -682,14 +771,26 @@ li::marker {
   flex-direction: column;
 }
 
+.create__preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .menubar--button {
   position: relative;
-  width: 50px;
-  height: auto;
+  width: 40px;
+  height: 40px;
 
   background-color: var(--accent);
   border: 0px;
   border-radius: 5px;
+}
+
+.menubar--button img {
+  width: 35px;
+  height: auto;
+  margin: auto;
 }
 
 .overflow-wrapper {
@@ -700,7 +801,6 @@ li::marker {
 .dashboard--admin__list {
   border: 2px solid var(--dark);
   border-radius: 5px;
-  border-spacing: 0.75rem;
   overflow-x: scroll;
 }
 
@@ -728,16 +828,20 @@ li::marker {
 
   font-family: var(--ff-serif);
   font-size: var(--fs-medium);
+  border-spacing: 0px;
 }
 
 .admin--table tr > th {
   min-width: max-content;
+  padding-inline: 0rem 1rem;
   font-size: var(--fs-small);
   text-align: left;
 }
 
 .admin--table td {
   min-width: max-content;
+  height: min-content;
+  padding-inline: 0rem 1rem;
   font-size: var(--fs-medium);
 }
 
@@ -776,7 +880,7 @@ li::marker {
 }
 
 .update-button {
-  width: 50px;
+  width: 40px;
   height: auto;
 
   background: transparent;
@@ -798,6 +902,15 @@ li::marker {
   }
 }
 
+@keyframes fade-slide-create {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
 @keyframes rotateIn {
   0% {
     opacity: 0;

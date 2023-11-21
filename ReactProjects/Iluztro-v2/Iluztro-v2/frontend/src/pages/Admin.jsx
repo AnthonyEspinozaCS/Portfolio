@@ -65,6 +65,7 @@ const Admin = () => {
                   <th>Job ID</th>
                   <th>Type of Job</th>
                   <th>Status</th>
+                  <th>Payment URL</th>
                   <th>Created</th>
                 </tr>
               </thead>

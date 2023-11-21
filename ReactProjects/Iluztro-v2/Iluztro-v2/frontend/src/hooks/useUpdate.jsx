@@ -8,17 +8,17 @@ export const useUpdate = () => {
   const { user } = useAuthContext();
   const { dispatch } = useJobContext();
 
-  const update = async (jobId, updateValue) => {
+  const update = async (job_Id, update_status, update_URL) => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:3000/jobs/" + jobId, {
+    const response = await fetch("http://localhost:3000/jobs/" + job_Id, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${user.token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ jobId, updateValue }),
+      body: JSON.stringify({ job_Id, update_status, update_URL }),
     });
 
     const json = await response.json();

@@ -1,4 +1,4 @@
-import { queryAllJobs, queryUserJobs, queryUpdateJob } from "../utils/database.js";
+import { queryAllJobs, queryUserJobs, queryUpdateJob, createJobDB } from "../utils/database.js";
 
 export async function getUserJobs(userId) {
   const jobs = await queryUserJobs(userId);
@@ -12,8 +12,14 @@ export async function getAllUsersJobs() {
   return jobs;
 }
 
-export async function updateOneJob(jobId, updateValue) {
-  const job = await queryUpdateJob(jobId, updateValue);
+export async function updateOneJob(job_Id, update_status, update_URL) {
+  const job = await queryUpdateJob(job_Id, update_status, update_URL);
+
+  return job;
+}
+
+export async function createAJob(user_id, job_status, job_type, payment_url) {
+  const job = await createJobDB(user_id, job_status, job_type, payment_url);
 
   return job;
 }

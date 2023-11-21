@@ -1,6 +1,10 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import "dayjs/locale/en";
+
 dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export function getTimeSinceCreated(timestamp) {
   const convert = dayjs(timestamp);
@@ -20,8 +24,17 @@ export function getTimeSinceCreated(timestamp) {
   }
 }
 
+export function formatTimestamp(timestamp) {
+  const timeZone = dayjs.tz.guess();
+  dayjs.tz.setDefault(timeZone);
+  const convert = dayjs(timestamp.substring(0, 22) + "Z");
+  console.log(convert.local().format("MM/DD/YY h:mm A"));
+
+  return convert.local().format("ddd, MMM DD @ h:mm A");
+}
+
 export function splitName(name) {
   const temp = name.split(" ");
 
-  console.log(temp);
+  return { first_name: temp[0], last_name: temp[1] };
 }

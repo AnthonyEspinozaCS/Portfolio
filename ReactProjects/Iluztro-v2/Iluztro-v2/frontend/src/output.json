@@ -1,0 +1,44 @@
+{
+  "calendar_event": null,
+  "created_at": "2023-11-10T21:18:02.285546Z",
+  "end_time": "2023-11-15T06:00:00.000000Z",
+  "event_guests": [],
+  "event_memberships": [{ "user": "https://api.calendly.com/users/cb959e28-c26f-4fd0-b42a-01a9833352ec", "user_email": "patriciararagon@gmail.com" }],
+  "event_type": "https://api.calendly.com/event_types/2a53a269-e76e-4021-b601-8b4f798792b6",
+  "invitees_counter": { "active": 1, "limit": 1, "total": 1 },
+  "location": {
+    "data": {
+      "id": 88506423087,
+      "settings": {
+        "global_dial_in_numbers": [
+          { "country_name": "US", "city": "Chicago", "number": "+1 312 626 6799", "type": "toll", "country": "US" },
+          { "country_name": "US", "city": "New York", "number": "+1 646 558 8656", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 646 931 3860", "type": "toll", "country": "US" },
+          { "country_name": "US", "city": "Washington DC", "number": "+1 301 715 8592", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 305 224 1968", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 309 205 3325", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 564 217 2000", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 669 444 9171", "type": "toll", "country": "US" },
+          { "country_name": "US", "city": "San Jose", "number": "+1 669 900 9128", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 689 278 1000", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 719 359 4580", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 253 205 0468", "type": "toll", "country": "US" },
+          { "country_name": "US", "city": "Tacoma", "number": "+1 253 215 8782", "type": "toll", "country": "US" },
+          { "country_name": "US", "city": "Houston", "number": "+1 346 248 7799", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 360 209 5623", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 386 347 5053", "type": "toll", "country": "US" },
+          { "country_name": "US", "number": "+1 507 473 4847", "type": "toll", "country": "US" }
+        ]
+      },
+      "extra": { "intl_numbers_url": "https://us02web.zoom.us/u/kdBQy517mI" }
+    },
+    "join_url": "https://us02web.zoom.us/j/88506423087",
+    "status": "pushed",
+    "type": "zoom"
+  },
+  "name": "Executive Summary",
+  "start_time": "2023-11-15T05:30:00.000000Z",
+  "status": "active",
+  "updated_at": "2023-11-10T21:18:02.285546Z",
+  "uri": "https://api.calendly.com/scheduled_events/dc87d9dc-6dae-4336-815d-d10b8493c934"
+}

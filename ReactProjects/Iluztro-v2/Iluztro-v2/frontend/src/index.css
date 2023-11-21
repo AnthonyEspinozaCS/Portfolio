@@ -124,6 +124,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-size: inherit;
   font-weight: 400;
   font-family: var(--ff-serif);
 }
@@ -933,6 +934,7 @@ footer {
 
   font-size: var(--fs-header-l);
   font-family: var(--ff-sans-normal);
+  font-weight: 700;
   list-style: none;
   text-align: center;
 }
@@ -974,6 +976,11 @@ footer {
 
     font-size: var(--fs-header-s);
   }
+}
+
+.footer-list > li .footer__sub-list {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes fadeIn {

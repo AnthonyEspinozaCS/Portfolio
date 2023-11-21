@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 
 const Footer = () => {
@@ -25,13 +25,23 @@ const Footer = () => {
           <section className="right-side">
             <ul className="footer-list">
               <li>
-                <Link to="/about">About Us</Link>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/plans">Plans</Link>
+                <ul className="footer__sub-list">
+                  <li>
+                    <NavLink to="/summaries">Summaries</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/logo-design">Logo Design</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/websites">Websites</NavLink>
+                  </li>
+                </ul>
               </li>
               <li>
-                <Link to="/contact">Contact Us</Link>
+                <NavLink to="/plans">Plans</NavLink>
               </li>
             </ul>
           </section>

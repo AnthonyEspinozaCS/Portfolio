@@ -2,11 +2,11 @@ import { useState } from "react";
 import refresh from "../assets/images/update.svg";
 import { useUpdate } from "../hooks/useUpdate";
 
-const UpdateJob = ({ jobId, updateValue }) => {
+const UpdateJob = ({ jobId, updateStatus, updateURL }) => {
   const { update, isLoading, error } = useUpdate();
 
   function handleClick() {
-    update(jobId, updateValue);
+    update(jobId, updateStatus, updateURL);
   }
 
   return (
